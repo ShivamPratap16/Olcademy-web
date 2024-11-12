@@ -8,9 +8,7 @@ const Careers = () => {
         { name: "Overview", content: true },
         { name: "India", content: true },
         { name: "Americas", content: true },
-        { name: "Asia Pecific", content: true },
-        { name: "Europe and UK", content: true },
-        { name: "Middle East and Africa", content: true },
+     
     ];
 
     const handleTabClick = (tab) => {
@@ -93,7 +91,7 @@ export const Americas = () => {
     return (
         <div className=' ml-10 text-white w-[80%] flex gap-28 '>
             <div className=' text-gray-300 h-[80%] flex flex-col gap-5 w-60 '>
-                <p>Argentina</p>
+              
                 <p>Brazil</p>
                 <p>Canada</p>
                 <p>Chile</p>
@@ -103,7 +101,7 @@ export const Americas = () => {
                 <p>Colombia</p>
                 <p>Ecuador</p>
                 <p>Mexico</p>
-                <p>Peru</p>
+              
 
             </div>
             <div className=' text-gray-300 h-[80%] flex flex-col gap-5 w-60 '>

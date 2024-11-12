@@ -72,9 +72,7 @@ export const Overview = () => {
             <p className='mt-5 leading-8 text-gray-400 font-[200] tracking-[0.15em]'>
                 Get access to a catalog of the latest news stories from across Olcademy. Discover our press releases, reports, and company announcements.
             </p>
-            <button className='border-2 border-white rounded-3xl px-5 py-3 mt-16 hover:underline'>
-                Discover more
-            </button>
+           
         </div>
     )
 }
@@ -97,7 +95,7 @@ export const PressReleases = () => {
                     <p className='text-gray-400 font-[600]'>21 June 2024</p>
                     <p className='text-gray-300 font-bold'>Xerox Signs Deal with Olcademy to Transform its IT Technology Using Cloud and GenAI</p>
                 </div>
-                <p className='underline underline-offset-2'>View all</p>
+              
             </div>
         </div>
     )
@@ -121,7 +119,7 @@ export const NewsAlerts = () => {
                     <p className='text-gray-400 font-[600]'>14 May 2024</p>
                     <p className='text-gray-300 font-bold'>Olcademy Named One of the 50 Most Community-Minded Companies in the US</p>
                 </div>
-                <p className='underline underline-offset-2'>View all</p>
+            
             </div>
         </div>
     )
@@ -145,7 +143,7 @@ export const AnalystRecognition = () => {
                     <p className='text-gray-400 font-[600]'>06 Jun 2024</p>
                     <p className='text-gray-300 font-bold'>Olcademy Recognized as a Leader in Software Product Engineering Services by Everest Group</p>
                 </div>
-                <p className='underline underline-offset-2'>View all</p>
+                
             </div>
         </div>
     )

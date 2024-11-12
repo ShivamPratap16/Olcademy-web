@@ -85,7 +85,7 @@ export const Overview = () => {
                     <p className='flex items-center gap-2'>+260.25(6.63%) <FaArrowUp className='text-green-500' /> </p>
                 </div>
             </div>
-            <button className='border-2 border-white rounded-3xl px-5 py-3 mt-10 hover:underline'> Discover More </button>
+           
         </div>
     )
 }

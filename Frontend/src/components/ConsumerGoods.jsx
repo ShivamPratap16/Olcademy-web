@@ -4,6 +4,7 @@ import services2 from "../assets/services2.jpeg";
 import services3 from "../assets/cognitive.jpg";
 import services5 from "../assets/services5.jpg";
 
+
 const data = [
     {
         title: "Supply Chain Management",
@@ -33,6 +34,9 @@ const data = [
 
 const ConsumerGoods = () => {
     const [selectedChallenge, setSelectedChallenge] = useState(null);
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submissionStatus, setSubmissionStatus] = useState('');
 
     const solutionData = [
         {
@@ -61,6 +65,26 @@ const ConsumerGoods = () => {
         setSelectedChallenge(selectedChallenge === index ? null : index);
     };
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        
+        try {
+            // Simulate an API call
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+            setSubmissionStatus("Thank you for contacting us. We will get back to you soon.");
+            setFormData({ name: '', email: '', message: '' });
+        } catch (error) {
+            setSubmissionStatus("Something went wrong. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     return (
         <div className="w-full h-auto bg-white">
             {/* Hero Section */}
@@ -176,44 +200,21 @@ const ConsumerGoods = () => {
             </div>
 
             {/* Contact Us Section */}
-            <div className="bg-gray-800 p-8 rounded-lg mt-8 mx-10">
+            <div className="bg-gray-800 p-8 rounded-lg mt-16 mx-10">
                 <h2 className="text-3xl font-bold text-white mb-4">Contact Us</h2>
-                <form className="flex flex-col">
-                    <label className="text-gray-300 mb-2" htmlFor="name">Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your Name"
-                        className="p-2 rounded-lg mb-4 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                    />
+                {submissionStatus && <div className="bg-green-500 text-white p-2 mb-4 rounded-md">{submissionStatus}</div>}
+                <form onSubmit={handleSubmit} className="flex flex-col">
+                    <label className="text-gray-300 font-semibold mb-2">Your Name:</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} className="p-2 mb-4 rounded-md bg-gray-700 text-white focus:outline-none" required />
 
-                    <label className="text-gray-300 mb-2" htmlFor="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Your Email"
-                        className="p-2 rounded-lg mb-4 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                    />
+                    <label className="text-gray-300 font-semibold mb-2">Your Email:</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} className="p-2 mb-4 rounded-md bg-gray-700 text-white focus:outline-none" required />
 
-                    <label className="text-gray-300 mb-2" htmlFor="message">Message</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="4"
-                        placeholder="Your Message"
-                        className="p-2 rounded-lg mb-4 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                    ></textarea>
+                    <label className="text-gray-300 font-semibold mb-2">Message:</label>
+                    <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="p-2 mb-4 rounded-md bg-gray-700 text-white focus:outline-none" required></textarea>
 
-                    <button
-                        type="submit"
-                        className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-300"
-                    >
-                        Send Message
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md" disabled={isSubmitting}>
+                        {isSubmitting ? "Submitting..." : "Send Message"}
                     </button>
                 </form>
             </div>

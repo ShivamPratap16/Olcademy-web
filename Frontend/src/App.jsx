@@ -52,6 +52,9 @@ import Agile from "./components/Agile";
 import BrandLift from "./components/BrandLift";
 import TalentHub from "./components/TalentHub";
 import Dashboard from "./components/Dashboard";
+import UsersPage from "./components/UsersPage";
+
+
 
 function App() {
   const [authUser] = useAuth(); // Unused setter removed, as it's not utilized in this component
@@ -70,6 +73,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path='/users' element={<UsersPage />} />
+        
+        {/* <Route path='/changes' element={<OrdersPage />} /> */}
+       
+        {/* <Route path='/settings' element={<SettingsPage />} /> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/industries/banking" element={<Banking />} />
         <Route path="/industries/capital-markets" element={<CapitalMarkets />} />

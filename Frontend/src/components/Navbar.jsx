@@ -84,6 +84,7 @@ const Navbar = () => {
 
     return (
         <>
+         
             <div className={`flex items-center xl:gap-0 gap-3 px-5 py-2 xl:w-[100dvw] fixed top-0 right-0 left-0 w-fit fixed z-[100] ${navbarBg}`}>
                
                 <img src={logo} alt="TCS Logo" />
@@ -454,13 +455,14 @@ const Navbar = () => {
 
             <div className="xl:flex hidden justify-end items-center gap-4 mr-4">
   <p className="hover:underline hover:underline-offset-2 cursor-pointer text-[#9E9FA3] uppercase text-[0.75rem] tracking-[0.15em] font-bold">
-    <Link 
-      to="/dashboard"  // This is the correct link to the Dashboard component
-      className="text-[#9E9FA3]"
-    >
-      Admin
-    </Link>
-  </p>
+  {authUser ?(
+        <Link to="/dashboard" className="text-[#9E9FA3]">
+          Admin
+        </Link>
+      ) : null}
+    </p>
+  
+  
 </div>
 
 
@@ -476,7 +478,7 @@ const Navbar = () => {
 </div>
 
 <div className="justify-center items-center ml-4">
-  {authUser ? (
+  {authUser ? (  //authUser && authUser.role === 'admin' ?  add thiss in plce of authuser for admin only access to dashboard
     <Logout />
   ) : (
     <div className="flex justify-center items-center">
